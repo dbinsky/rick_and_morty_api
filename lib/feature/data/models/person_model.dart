@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:rick_and_morty_api/feature/domain/entities/person_entity.dart';
 
 class PersonModel extends PersonEntity {
@@ -30,5 +31,19 @@ class PersonModel extends PersonEntity {
           (json['episode'] as List<dynamic>).map((e) => e as String).toList(),
       created: DateTime.parse(json['created'] as String),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'status': status,
+      'species': species,
+      'type': type,
+      'gender': gender,
+      'origin': origin,
+      'location': location,
+      'image': image,
+    };
   }
 }
