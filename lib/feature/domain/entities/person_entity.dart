@@ -47,5 +47,5 @@ class LocationEntity {
   final String name;
   final String url;
 
-  LocationEntity(this.name, this.url);
+  LocationEntity({required this.name, required this.url});
 }
