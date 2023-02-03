@@ -3,7 +3,7 @@ import 'package:rick_and_morty_api/feature/data/models/location_model.dart';
 import 'package:rick_and_morty_api/feature/domain/entities/person_entity.dart';
 
 class PersonModel extends PersonEntity {
-  PersonModel({
+  const PersonModel({
     required super.id,
     required super.name,
     required super.status,
