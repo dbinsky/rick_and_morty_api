@@ -8,23 +8,23 @@ abstract class PersonSearchState extends Equatable {
   List<Object?> get props => [];
 }
 
-class PersonEmpty extends PersonSearchState {}
+class PersonEmptyState extends PersonSearchState {}
 
-class PersonSearchLoading extends PersonSearchState {}
+class PersonSearchLoadingState extends PersonSearchState {}
 
-class PersonSearchLoaded extends PersonSearchState {
+class PersonSearchLoadedState extends PersonSearchState {
   final List<PersonEntity> persons;
 
-  PersonSearchLoaded({required this.persons});
+  PersonSearchLoadedState({required this.persons});
 
   @override
   List<Object?> get props => [persons];
 }
 
-class PersonSearchError extends PersonSearchState {
+class PersonSearchErrorState extends PersonSearchState {
   final String message;
 
-  PersonSearchError({required this.message});
+  PersonSearchErrorState({required this.message});
 
   @override
   List<Object?> get props => [message];
