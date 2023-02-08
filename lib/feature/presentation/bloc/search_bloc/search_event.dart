@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 abstract class PersonSearchEvent extends Equatable {
-  PersonSearchEvent();
+  const PersonSearchEvent();
 
   @override
   List<Object?> get props => [];
@@ -10,7 +10,7 @@ abstract class PersonSearchEvent extends Equatable {
 class SearchPersonEvent extends PersonSearchEvent {
   final String personQuery;
 
-  SearchPersonEvent({required this.personQuery});
+  const SearchPersonEvent({required this.personQuery});
 
   @override
   List<Object?> get props => [];

@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:rick_and_morty_api/feature/domain/entities/person_entity.dart';
 
 abstract class PersonSearchState extends Equatable {
-  PersonSearchState();
+  const PersonSearchState();
 
   @override
   List<Object?> get props => [];
