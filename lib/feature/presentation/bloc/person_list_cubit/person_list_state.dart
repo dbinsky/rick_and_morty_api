@@ -17,6 +17,8 @@ class PersonListLoadingState extends PersonListState {
   final List<PersonEntity> oldPersonsList;
   final bool isFirstFetch;
 
-  const PersonListLoadingState(
-      {required this.oldPersonsList, required this.isFirstFetch});
+  const PersonListLoadingState({
+    required this.oldPersonsList,
+    required this.isFirstFetch,
+  });
 }

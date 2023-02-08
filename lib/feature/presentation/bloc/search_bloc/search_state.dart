@@ -15,7 +15,7 @@ class PersonSearchLoadingState extends PersonSearchState {}
 class PersonSearchLoadedState extends PersonSearchState {
   final List<PersonEntity> persons;
 
-  PersonSearchLoadedState({required this.persons});
+  const PersonSearchLoadedState({required this.persons});
 
   @override
   List<Object?> get props => [persons];
@@ -24,7 +24,7 @@ class PersonSearchLoadedState extends PersonSearchState {
 class PersonSearchErrorState extends PersonSearchState {
   final String message;
 
-  PersonSearchErrorState({required this.message});
+  const PersonSearchErrorState({required this.message});
 
   @override
   List<Object?> get props => [message];

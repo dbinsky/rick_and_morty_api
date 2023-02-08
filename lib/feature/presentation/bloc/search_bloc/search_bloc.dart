@@ -10,11 +10,11 @@ class PersonSearchBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
 
   PersonSearchBloc({required this.searchPerson})
       : super(PersonSearchEmptyState()) {
-    on<SearchPersonEvent>(_onEvent);
+    on<PersonSearchBeginEvent>(_onEvent);
   }
 
   FutureOr<void> _onEvent(
-      SearchPersonEvent event, Emitter<PersonSearchState> emit) async {
+      PersonSearchBeginEvent event, Emitter<PersonSearchState> emit) async {
     emit(PersonSearchLoadingState());
     final failureOrPerson =
         await searchPerson(SearchPersonParams(query: event.personQuery));

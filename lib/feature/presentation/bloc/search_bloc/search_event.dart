@@ -7,10 +7,10 @@ abstract class PersonSearchEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class SearchPersonEvent extends PersonSearchEvent {
+class PersonSearchBeginEvent extends PersonSearchEvent {
   final String personQuery;
 
-  const SearchPersonEvent({required this.personQuery});
+  const PersonSearchBeginEvent({required this.personQuery});
 
   @override
   List<Object?> get props => [];
