@@ -5,6 +5,9 @@ import 'package:rick_and_morty_api/feature/domain/usecases/search_person.dart';
 import 'package:rick_and_morty_api/feature/presentation/bloc/search_bloc/search_event.dart';
 import 'package:rick_and_morty_api/feature/presentation/bloc/search_bloc/search_state.dart';
 
+const SERVER_FAILURE_MESSAGE = 'Server Failure';
+const CACHED_FAILURE_MESSAGE = 'Cache Failure';
+
 class PersonSearchBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
   final SearchPerson searchPerson;
 

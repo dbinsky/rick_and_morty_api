@@ -33,10 +33,10 @@ class PersonListLoadedState extends PersonListState {
   List<Object?> get props => [personsList];
 }
 
-class PersonErrorState extends PersonListState {
+class PersonListErrorState extends PersonListState {
   final String message;
 
-  const PersonErrorState({required this.message});
+  const PersonListErrorState({required this.message});
 
   @override
   List<Object?> get props => [message];
