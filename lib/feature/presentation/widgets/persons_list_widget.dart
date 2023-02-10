@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_api/feature/domain/entities/person_entity.dart';
 import 'package:rick_and_morty_api/feature/presentation/bloc/person_list_cubit/person_list_cubit.dart';
 import 'package:rick_and_morty_api/feature/presentation/bloc/person_list_cubit/person_list_state.dart';
+import 'package:rick_and_morty_api/feature/presentation/widgets/person_card_widget.dart';
 
 class PersonsListWidget extends StatelessWidget {
   const PersonsListWidget({super.key});
@@ -19,7 +20,7 @@ class PersonsListWidget extends StatelessWidget {
         }
         return ListView.separated(
           itemBuilder: (context, index) {
-            return Text('${persons[index]}');
+            return PersonCardWidget(person: persons[index]);
           },
           separatorBuilder: (context, index) {
             return Divider(
