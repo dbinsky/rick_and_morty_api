@@ -59,6 +59,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Last know location: `
+  String get person_location {
+    return Intl.message(
+      'Last know location: ',
+      name: 'person_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Origin: `
+  String get origin {
+    return Intl.message(
+      'Origin: ',
+      name: 'origin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

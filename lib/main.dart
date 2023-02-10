@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           colorScheme:
               const ColorScheme.dark(background: AppColors.mainBackground),
-          scaffoldBackgroundColor: AppColors.cellBackground,
         ),
         home: const HomePage(),
       ),

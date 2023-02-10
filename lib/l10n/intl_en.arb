@@ -1,3 +1,5 @@
 {
-    "main_app_bar_title": "Character"
+    "main_app_bar_title": "Character",
+    "person_location": "Last know location: ",
+    "origin": "Origin: "
 }
