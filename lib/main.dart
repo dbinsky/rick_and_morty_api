@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty_api/common/app_colors.dart';
 import 'package:rick_and_morty_api/feature/presentation/bloc/person_list_cubit/person_list_cubit.dart';
 import 'package:rick_and_morty_api/feature/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:rick_and_morty_api/feature/presentation/page/person_page.dart';
 import 'package:rick_and_morty_api/locator_servise.dart' as di;
 import 'locator_servise.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,14 +23,22 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PersonListCubit>(
-            create: (context) => sl<PersonListCubit>()),
+            create: (context) => sl<PersonListCubit>()..loadPerson()),
         BlocProvider<PersonSearchBloc>(
             create: (context) => sl<PersonSearchBloc>()),
       ],
       child: MaterialApp(
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
         theme: ThemeData.dark().copyWith(
-          colorScheme: const ColorScheme.dark(background: Colors.black),
-          scaffoldBackgroundColor: Colors.grey,
+          colorScheme:
+              const ColorScheme.dark(background: AppColors.mainBackground),
+          scaffoldBackgroundColor: AppColors.cellBackground,
         ),
         home: const HomePage(),
       ),
