@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_api/common/app_colors.dart';
 import 'package:rick_and_morty_api/feature/domain/entities/person_entity.dart';
+import 'package:rick_and_morty_api/feature/presentation/widgets/person_cache_image_widget.dart';
 import 'package:rick_and_morty_api/generated/l10n.dart';
 
 class PersonCardWidget extends StatelessWidget {
@@ -19,9 +20,11 @@ class PersonCardWidget extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: 166,
-            height: 166,
-            child: Image.network(person.image),
+            child: PersonCacheImageWidget(
+              imageUrl: person.image,
+              imageHight: 166,
+              imageWidth: 166,
+            ),
           ),
           const SizedBox(width: 16),
           Expanded(

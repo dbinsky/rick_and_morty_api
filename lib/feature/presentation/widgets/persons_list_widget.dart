@@ -17,6 +17,14 @@ class PersonsListWidget extends StatelessWidget {
           return _loadingIndicator();
         } else if (state is PersonListLoadedState) {
           persons = state.personsList;
+        } else if (state is PersonListErrorState) {
+          return Text(
+            state.message,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+            ),
+          );
         }
         return ListView.separated(
           itemBuilder: (context, index) {
@@ -37,9 +45,7 @@ class PersonsListWidget extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.all(8.0),
       child: Center(
-        child: CircularProgressIndicator(
-          color: Colors.white,
-        ),
+        child: CircularProgressIndicator(),
       ),
     );
   }
