@@ -11,11 +11,10 @@ class PersonsListWidget extends StatelessWidget {
   final scrollController = ScrollController();
   void setupScrollController(BuildContext context) {
     scrollController.addListener(() {
-      if (scrollController.position.atEdge) {
-        if (scrollController.position.pixels != 0) {
-          // BlocProvider.of<PersonListCubit>(context).loadPerson();
-          context.read<PersonListCubit>().loadPerson();
-        }
+      if (scrollController.position.atEdge &&
+          scrollController.position.pixels != 0) {
+        // BlocProvider.of<PersonListCubit>(context).loadPerson();
+        context.read<PersonListCubit>().loadPerson();
       }
     });
   }
