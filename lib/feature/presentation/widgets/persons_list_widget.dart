@@ -6,15 +6,33 @@ import 'package:rick_and_morty_api/feature/presentation/bloc/person_list_cubit/p
 import 'package:rick_and_morty_api/feature/presentation/widgets/person_card_widget.dart';
 
 class PersonsListWidget extends StatelessWidget {
-  const PersonsListWidget({super.key});
+  PersonsListWidget({super.key});
+
+  final scrollController = ScrollController();
+  void setupScrollController(BuildContext context) {
+    scrollController.addListener(() {
+      if (scrollController.position.atEdge) {
+        if (scrollController.position.pixels != 0) {
+          // BlocProvider.of<PersonListCubit>(context).loadPerson();
+          context.read<PersonListCubit>().loadPerson();
+        }
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    setupScrollController(context);
+    bool isLoading = false;
+
     return BlocBuilder<PersonListCubit, PersonListState>(
       builder: (BuildContext context, state) {
         List<PersonEntity> persons = [];
         if (state is PersonListLoadingState && state.isFirstFetch) {
           return _loadingIndicator();
+        } else if (state is PersonListLoadingState) {
+          persons = state.oldPersonsList;
+          isLoading = true;
         } else if (state is PersonListLoadedState) {
           persons = state.personsList;
         } else if (state is PersonListErrorState) {
@@ -27,15 +45,20 @@ class PersonsListWidget extends StatelessWidget {
           );
         }
         return ListView.separated(
+          controller: scrollController,
           itemBuilder: (context, index) {
-            return PersonCardWidget(person: persons[index]);
+            if (index < persons.length) {
+              return PersonCardWidget(person: persons[index]);
+            } else {
+              return _loadingIndicator();
+            }
           },
           separatorBuilder: (context, index) {
             return Divider(
               color: Colors.grey[400],
             );
           },
-          itemCount: persons.length,
+          itemCount: persons.length + (isLoading ? 1 : 0),
         );
       },
     );
