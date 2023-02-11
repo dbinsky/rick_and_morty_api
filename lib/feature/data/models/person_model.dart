@@ -19,19 +19,19 @@ class PersonModel extends PersonEntity {
 
   factory PersonModel.fromJson(Map<String, dynamic> json) {
     return PersonModel(
-      id: json['id'],
-      name: json['name'],
-      status: json['status'],
-      species: json['species'],
-      type: json['type'],
-      gender: json['gender'],
+      id: json['id'] as int,
+      name: json['name'] as String,
+      status: json['status'] as String,
+      species: json['species'] as String,
+      type: json['type'] as String,
+      gender: json['gender'] as String,
       origin: json['origin'] != null
           ? LocationModel.fromJson(json['origin'] as Map<String, dynamic>)
           : null,
       location: json['location']['name'] != null
           ? LocationModel.fromJson(json['location'] as Map<String, dynamic>)
           : null,
-      image: json['image'],
+      image: json['image'] as String,
       episode:
           (json['episode'] as List<dynamic>).map((e) => e as String).toList(),
       created: DateTime.parse(json['created'] as String),
@@ -40,7 +40,7 @@ class PersonModel extends PersonEntity {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
+      'id': super.id,
       'name': name,
       'status': status,
       'species': species,
@@ -50,7 +50,7 @@ class PersonModel extends PersonEntity {
       'location': location,
       'image': image,
       'episode': episode,
-      'created': created.toIso8601String()
+      'created': created.toIso8601String(),
     };
   }
 }
