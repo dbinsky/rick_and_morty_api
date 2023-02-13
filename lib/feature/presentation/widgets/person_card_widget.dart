@@ -37,6 +37,8 @@ class PersonCardWidget extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
                 Row(
@@ -68,6 +70,8 @@ class PersonCardWidget extends StatelessWidget {
                   style: const TextStyle(
                     color: AppColors.greyColor,
                   ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -82,6 +86,8 @@ class PersonCardWidget extends StatelessWidget {
                 Text(
                   S.of(context).origin,
                   style: const TextStyle(color: AppColors.greyColor),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
                 Text(

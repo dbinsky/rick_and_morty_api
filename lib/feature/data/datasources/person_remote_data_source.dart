@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:rick_and_morty_api/core/error/exception.dart';
 import 'package:rick_and_morty_api/feature/data/models/person_model.dart';
 import 'package:http/http.dart' as http;
@@ -22,7 +23,7 @@ class PersonRemoteDataSourceImplement implements PersonRemoteDataSource {
       'https://rickandmortyapi.com/api/character/?name=$query');
 
   Future<List<PersonModel>> _getPersonFromUrl(String url) async {
-    print(url);
+    log(url);
     final response = await client
         .get(Uri.parse(url), headers: {'Content-Type': 'application/json'});
     if (response.statusCode == 200) {
